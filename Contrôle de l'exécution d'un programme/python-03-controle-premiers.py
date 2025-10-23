@@ -30,23 +30,23 @@ def premier(n: int) -> Tuple[bool, Optional[int]]:
         raise ValueError("n devrait être plus grand que 1")
 
     if n==2:
-        return (True, None)
+        return True, None
 
     if n%2 == 0:
-        return (False, 2)
+        return False, 2
 
     # On ne parcourt les nombres que de 2 à la racine carrée de n
     for i in range(3, int(sqrt(n)) + 1, 2):
         # Si n est divisible par i, alors il n'est pas premier
         if n % i == 0:
-            return (False, i)
+            return False, i
 
-    return (True, None)
+    return True, None
 
 def main():
     nombre = int(input("Entrez un nombre entier > 1\n"))
     try:
-        (est_premier, diviseur) = premier(nombre)
+        est_premier, diviseur = premier(nombre)
 
         print(f"{nombre}",end=" ")
 
