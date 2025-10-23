@@ -40,7 +40,7 @@ def first_non_prime_fermat() -> int:
     while True:
         f_n = fermat(n)
         # Permet de savoir si Fn est premier ou non
-        f_n_non_premier = not premier(f_n)[0]
+        f_n_non_premier = not premier(f_n)
         if f_n_non_premier:
             return f_n
         n+=1
@@ -73,7 +73,7 @@ def next_prime(n: int) -> int:
     else:
         n+=2
     while True:
-        n_est_premier = premier(n)[0]
+        n_est_premier = premier(n)
         if n_est_premier:
             return n
         n+=2
@@ -102,7 +102,7 @@ def couple_prime_after(n: int) -> int:
     """
     while True:
         n = next_prime(n)
-        next_n_est_premier = premier(n+2)[0]
+        next_n_est_premier = premier(n + 2)
         if next_n_est_premier:
             return n
 
@@ -118,7 +118,7 @@ def germain_prime_after(n: int) -> int:
     """
     while True:
         n = next_prime(n)
-        n_s_g_est_premier = premier(2 * n + 1)[0]
+        n_s_g_est_premier = premier(2 * n + 1)
         if n_s_g_est_premier:
             return n
 

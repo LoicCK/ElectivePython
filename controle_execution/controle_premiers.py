@@ -1,7 +1,7 @@
 from math import sqrt
 from typing import Tuple, Optional
 
-def premier(n: int) -> Tuple[bool, Optional[int]]:
+def decomposer_en_facteurs(n: int) -> Tuple[bool, Optional[int]]:
     """
     Vérifie si un entier n est premier ou non.
 
@@ -11,20 +11,20 @@ def premier(n: int) -> Tuple[bool, Optional[int]]:
     :rtype: Tuple[bool, Optional[int]]
     :raise ValueError: n est plus petit que 2.
 
->>> premier(25)
+>>> decomposer_en_facteurs(25)
     (False, 5)
-    >>> premier(3)
+    >>> decomposer_en_facteurs(3)
     (True, None)
-    >>> premier(2)
+    >>> decomposer_en_facteurs(2)
     (True, None)
-    >>> premier(97)
+    >>> decomposer_en_facteurs(97)
     (True, None)
-    >>> premier(100)
+    >>> decomposer_en_facteurs(100)
     (False, 2)
-    >>> premier (-10)
+    >>> decomposer_en_facteurs (-10)
     Traceback (most recent call last):
         ...
-    ValueError: n devrait être plus grand que 2
+    ValueError: n devrait être plus grand que 1
     """
 
     # On vérifie que n est supérieur à 1, afin que le test ait un sens.
@@ -45,10 +45,36 @@ def premier(n: int) -> Tuple[bool, Optional[int]]:
 
     return True, None
 
+def premier(n: int) -> int:
+    """
+    Permet de savoir si n est un entier ou non.
+
+    :param n: L'entier n.
+    :type n: int
+    :return: Un booléen indiquant si n est entier.
+    :rtype: bool
+
+    >>> premier(25)
+    False
+    >>> premier(3)
+    True
+    >>> premier(2)
+    True
+    >>> premier(97)
+    True
+    >>> premier(100)
+    False
+    >>> premier(-10)
+    Traceback (most recent call last):
+        ...
+    ValueError: n devrait être plus grand que 1
+    """
+    return decomposer_en_facteurs(n)[0]
+
 def main():
     nombre = int(input("Entrez un nombre entier > 1\n"))
     try:
-        est_premier, diviseur = premier(nombre)
+        est_premier, diviseur = decomposer_en_facteurs(nombre)
 
         print(f"{nombre}",end=" ")
 
