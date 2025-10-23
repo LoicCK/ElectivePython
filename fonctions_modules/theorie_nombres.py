@@ -36,7 +36,7 @@ def first_non_prime_fermat() -> int:
     >>> first_non_prime_fermat()
     4294967297
     """
-    n = 1
+    n = 0
     while True:
         f_n = fermat(n)
         # Permet de savoir si Fn est premier ou non
@@ -65,14 +65,16 @@ def next_prime(n: int) -> int:
     >>> next_prime(20)
     23
     """
+    if n < 2:
+        return 2
     # Nous voulons le prochain nombre premier, qui est forcément impair
     if n%2==0:
         n+=1
     else:
         n+=2
     while True:
-        n_premier = premier(n)[0]
-        if n_premier:
+        n_est_premier = premier(n)[0]
+        if n_est_premier:
             return n
         n+=2
 
@@ -100,8 +102,8 @@ def couple_prime_after(n: int) -> int:
     """
     while True:
         n = next_prime(n)
-        next_n_premier = premier(n+2)[0]
-        if next_n_premier:
+        next_n_est_premier = premier(n+2)[0]
+        if next_n_est_premier:
             return n
 
 def germain_prime_after(n: int) -> int:
@@ -116,8 +118,8 @@ def germain_prime_after(n: int) -> int:
     """
     while True:
         n = next_prime(n)
-        n_s_g = premier(2 * n + 1)[0]
-        if n_s_g:
+        n_s_g_est_premier = premier(2 * n + 1)[0]
+        if n_s_g_est_premier:
             return n
 
 
