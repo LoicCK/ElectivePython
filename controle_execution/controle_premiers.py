@@ -47,11 +47,11 @@ def decomposer_en_facteurs(n: int) -> Tuple[bool, Optional[int]]:
 
 def premier(n: int) -> int:
     """
-    Permet de savoir si n est un entier ou non.
+    Permet de savoir si n est un premier ou non.
 
     :param n: L'entier n.
     :type n: int
-    :return: Un booléen indiquant si n est entier.
+    :return: Un booléen indiquant si n est premier.
     :rtype: bool
 
     >>> premier(25)
@@ -72,8 +72,9 @@ def premier(n: int) -> int:
     return decomposer_en_facteurs(n)[0]
 
 def main():
-    nombre = int(input("Entrez un nombre entier > 1\n"))
+    entree = input("Entrez un nombre entier > 1\n")
     try:
+        nombre = int(entree)
         est_premier, diviseur = decomposer_en_facteurs(nombre)
 
         print(f"{nombre}",end=" ")
@@ -82,7 +83,7 @@ def main():
             print(f"= {diviseur} x {nombre // diviseur}", end=" ")
         print(f": {str(est_premier)}")
     except ValueError as e:
-        print(f"L'entrée {nombre} n'est pas bonne. {e}")
+        print(f"L'entrée {entree} n'est pas bonne. {e}")
 
 
 if __name__ == '__main__':
