@@ -1,4 +1,4 @@
-def check_password(password):
+def check_password(password: str) -> bool:
     """
     Teste la robustesse d'un password
 

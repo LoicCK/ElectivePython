@@ -1,4 +1,4 @@
-def is_cyclope(n):
+def is_cyclope(n: int) -> bool:
     """retourne la vérité de "n est un nombre cyclope"
 
     :param n: nombre à tester

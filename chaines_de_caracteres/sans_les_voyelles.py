@@ -1,4 +1,4 @@
-def remove_vowels_it(s):
+def remove_vowels_it(s: str) -> str:
     """Retire les voyelles de la chaîne de caractère passée en paramètre
 
     :param s: chaine de caractère à traiter
@@ -28,7 +28,7 @@ def remove_vowels_it(s):
         out += c
     return out
 
-def remove_vowels_rec(s):
+def remove_vowels_rec(s: str) -> str:
     """Retire les voyelles de la chaîne de caractère passée en paramètre
 
     :param s: chaine de caractère à traiter

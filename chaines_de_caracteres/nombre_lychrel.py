@@ -1,4 +1,4 @@
-def lychrel(n, max_iteration = 1000):
+def lychrel(n: int, max_iteration = 1000) -> int:
     """Retourne le nombre d'itérations nécessaires pour obtenir un nombre palindrome
 
     :param n: nombre entier soumis au processus de Lychrel
