@@ -1,8 +1,9 @@
 #python-03-controle-premiers.py
 
 from math import sqrt
+from typing import Tuple, Optional
 
-def premier(n: int) -> bool:
+def premier(n: int) -> Tuple[bool, Optional[int]]:
     """
     Vérifie si un entier n est premier ou non.
 
@@ -26,26 +27,35 @@ def premier(n: int) -> bool:
 
     # On vérifie que n est supérieur à 1, afin que le test ait un sens.
     if n < 2:
-        raise ValueError("n devrait être plus grand que 2")
+        raise ValueError("n devrait être plus grand que 1")
 
-    print(n, end=" ")
+    if n==2:
+        return (True, None)
 
-    p = True
+    if n%2 == 0:
+        return (False, 2)
 
     # On ne parcourt les nombres que de 2 à la racine carrée de n
-    for i in range(2, int(sqrt(n)) + 1):
+    for i in range(3, int(sqrt(n)) + 1, 2):
         # Si n est divisible par i, alors il n'est pas premier
         if n % i == 0:
-            p = False
-            print("= " + str(i) + " x " + str(n // i), end=" ")
-            break
+            return (False, i)
 
-    print(": " + str(p))
-
-    return p
+    return (True, None)
 
 def main():
-    premier(int(input("Entrez un nombre entier > 1\n")))
+    nombre = int(input("Entrez un nombre entier > 1\n"))
+    try:
+        (est_premier, diviseur) = premier(nombre)
+
+        print(f"{nombre}",end=" ")
+
+        if not est_premier:
+            print(f"= {diviseur} x {nombre // diviseur}", end=" ")
+        print(f": {str(est_premier)}")
+    except ValueError as e:
+        print(f"L'entrée {nombre} n'est pas bonne. {e}")
+
 
 if __name__ == '__main__':
     main()
