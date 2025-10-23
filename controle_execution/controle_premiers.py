@@ -1,6 +1,8 @@
 from math import sqrt
 from typing import Tuple, Optional
+import functools
 
+@functools.cache
 def decomposer_en_facteurs(n: int) -> Tuple[bool, Optional[int]]:
     """
     Vérifie si un entier n est premier ou non.

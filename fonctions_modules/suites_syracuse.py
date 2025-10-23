@@ -1,6 +1,7 @@
 from typing import Tuple
+import functools
 
-
+@functools.cache
 def syracuse(n: int) -> Tuple[int, int, int]:
     """
     Une suite de Syracuse est une suite d'entiers naturels définie de la manière suivante :

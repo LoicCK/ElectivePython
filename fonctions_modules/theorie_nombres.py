@@ -1,5 +1,7 @@
 from controle_execution.controle_premiers import premier
+import functools
 
+@functools.cache
 def fermat(n: int) -> int:
     """
     Un nombre de Fermat est un nombre qui peut s’écrire sous la forme 2^(2^n)+1, avec n un entier naturel.
