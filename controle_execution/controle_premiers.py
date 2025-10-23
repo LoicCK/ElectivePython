@@ -7,16 +7,20 @@ def premier(n: int) -> Tuple[bool, Optional[int]]:
 
     :param n: L'entier dont on veut vérifier la primalité.
     :type n: int
-    :return: Un booléen indiquant si n est premier.
-    :rtype: bool
+    :return: Un tuple (booléen, entier optionnel) indiquant si n est premier, et son éventuel premier diviseur.
+    :rtype: Tuple[bool, Optional[int]]
     :raise ValueError: n est plus petit que 2.
 
-    >>> premier(25)
-    25 = 5 x 5 : False
-    False
-    >>> premier (3)
-    3 : True
-    True
+>>> premier(25)
+    (False, 5)
+    >>> premier(3)
+    (True, None)
+    >>> premier(2)
+    (True, None)
+    >>> premier(97)
+    (True, None)
+    >>> premier(100)
+    (False, 2)
     >>> premier (-10)
     Traceback (most recent call last):
         ...
