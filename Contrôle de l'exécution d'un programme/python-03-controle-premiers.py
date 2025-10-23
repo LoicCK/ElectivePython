@@ -1,5 +1,3 @@
-#python-03-controle-premiers.py
-
 from math import sqrt
 from typing import Tuple, Optional
 

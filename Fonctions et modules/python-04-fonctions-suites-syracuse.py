@@ -1,5 +1,3 @@
-#python-04-fonctions-suites-syracuse.py
-
 from typing import Tuple
 
 
