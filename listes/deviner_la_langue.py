@@ -181,6 +181,31 @@ def calculer_distance(letter_frequencies: List[float], language: List[float]) ->
     :type language: List[float]
     :return: La distance, plus elle est petite, plus le texte est proche de la langue
     :rtype: float
+
+    >>> l1 = [1.0, 2.5, 3.0] + [0.0] * 23
+    >>> l2 = [1.0, 2.5, 3.0] + [0.0] * 23
+    >>> calculer_distance(l1, l2)
+    0.0
+
+    >>> l_freq = [3.0] + [0.0] * 25
+    >>> l_lang = [0.0, 4.0] + [0.0] * 24
+    >>> calculer_distance(l_freq, l_lang)
+    5.0
+
+    >>> l_freq = [1.0, 1.0] + [0.0] * 24
+    >>> l_lang = [0.0] * 26
+    >>> calculer_distance(l_freq, l_lang)
+    1.4142135623730951
+
+    >>> l_freq = [-3.0] + [0.0] * 25
+    >>> l_lang = [0.0, 4.0] + [0.0] * 24
+    >>> calculer_distance(l_freq, l_lang)
+    5.0
+
+    >>> calculer_distance([1.0], [2.0])
+    Traceback (most recent call last):
+        ...
+    IndexError: list index out of range
     """
     distance = sqrt(sum([(letter_frequencies[i] - language[i]) ** 2 for i in range(26)]))
     return distance
