@@ -1,4 +1,76 @@
-from typing import Tuple
+from typing import List, Tuple
+
+def min_valeur_indice(l: List[int]) -> Tuple[int, int]:
+    """
+    Renvoie le minimum d'une liste de nombres, ainsi que sa première position connue
+
+    :param l: La liste de nombres
+    :type l: List[int]
+    :return: Le min et son premier indice
+    :rtype: Tuple[int, int]
+
+    >>> min_valeur_indice([10, 5, 20, 8])
+    (5, 1)
+    >>> min_valeur_indice([1, 5, 20, 8])
+    (1, 0)
+    >>> min_valeur_indice([10, 5, 2, 8, 2]) # Doit renvoyer le premier indice
+    (2, 2)
+    >>> min_valeur_indice([-5, -10, -1, -20])
+    (-20, 3)
+    >>> min_valeur_indice([42])
+    (42, 0)
+    >>> min_valeur_indice([])
+    Traceback (most recent call last):
+        ...
+    ValueError: La liste est vide
+    """
+    longueur_l = len(l)
+    if longueur_l == 0:
+        raise ValueError("La liste est vide")
+
+    minimum = l[0]
+    indice = 0
+    for i, number in enumerate(l):
+        if number < minimum:
+            minimum = number
+            indice = i
+    return minimum, indice
+
+def max_valeur_indice(l: List[int]) -> Tuple[int, int]:
+    """
+    Renvoie le maximum d'une liste de nombres, ainsi que sa première position connue
+
+    :param l: La liste de nombres
+    :type l: List[int]
+    :return: Le max et son premier indice
+    :rtype: Tuple[int, int]
+
+    >>> max_valeur_indice([10, 5, 20, 8])
+    (20, 2)
+    >>> max_valeur_indice([30, 5, 20, 8])
+    (30, 0)
+    >>> max_valeur_indice([10, 50, 2, 50]) # Doit renvoyer le premier indice
+    (50, 1)
+    >>> max_valeur_indice([-5, -10, -1, -20])
+    (-1, 2)
+    >>> max_valeur_indice([42])
+    (42, 0)
+    >>> max_valeur_indice([])
+    Traceback (most recent call last):
+        ...
+    ValueError: La liste est vide
+    """
+    longueur_l = len(l)
+    if longueur_l == 0:
+        raise ValueError("La liste est vide")
+
+    maximum = l[0]
+    indice = 0
+    for i, number in enumerate(l):
+        if number > maximum:
+            maximum = number
+            indice = i
+    return maximum, indice
 
 def mini(l: list[int]) -> int:
     """
@@ -23,15 +95,7 @@ def mini(l: list[int]) -> int:
         ...
     ValueError: La liste est vide
     """
-    longueur_l = len(l)
-    if longueur_l == 0:
-        raise ValueError("La liste est vide")
-
-    minimum = l[0]
-    for number in l[1:]:
-        if number < minimum:
-            minimum = number
-    return minimum
+    return min_valeur_indice(l)[0]
 
 def maxi(l: list[int]) -> int:
     """
@@ -56,15 +120,7 @@ def maxi(l: list[int]) -> int:
         ...
     ValueError: La liste est vide
     """
-    longueur_l = len(l)
-    if longueur_l == 0:
-        raise ValueError("La liste est vide")
-
-    maximum = l[0]
-    for number in l[1:]:
-        if number > maximum:
-            maximum = number
-    return maximum
+    return max_valeur_indice(l)[0]
 
 def ind_mini(l: list[int]) -> int:
     """
@@ -91,9 +147,7 @@ def ind_mini(l: list[int]) -> int:
         ...
     ValueError: La liste est vide
     """
-    l_min = mini(l)
-    indice_du_minimum = l.index(l_min)
-    return indice_du_minimum
+    return min_valeur_indice(l)[1]
 
 
 def ind_maxi(l: list[int]) -> int:
@@ -121,9 +175,7 @@ def ind_maxi(l: list[int]) -> int:
         ...
     ValueError: La liste est vide
     """
-    l_max = maxi(l)
-    indice_du_maximum = l.index(l_max)
-    return indice_du_maximum
+    return max_valeur_indice(l)[1]
 
 def somme(l: list[int]) -> int:
     """
