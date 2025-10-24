@@ -22,11 +22,7 @@ def remove_vowels_it(s: str) -> str:
     >>> remove_vowels_it(s)
     'rnthrnq'
     """
-    out = ""
-    for c in s:
-        if c in "aeiouy": continue
-        out += c
-    return out
+    return "".join([c for c in s if c not in "aeiouy"])
 
 def remove_vowels_rec(s: str) -> str:
     """Retire les voyelles de la chaîne de caractère passée en paramètre
