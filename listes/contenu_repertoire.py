@@ -1,13 +1,14 @@
 import os
+from typing import Tuple, List
 
-def scand(r):
+def scand(r: str) -> Tuple[List[str], List[str]]:
     """
     Sépare les fichiers et les répertoires du répertoire passé en argument
 
     :param r: répertoire à analyser
     :type r: str
     :returns: Liste des noms de fichier sous forme de chaine de caractères, Liste des noms de répertoire sous forme de chaine de caractères
-    :rtype: tuple(list, list)
+    :rtype: Tuple[List[str], List[str]]
 
     >>> f, d = scand('C:\\Windows')
     >>> isinstance(f, list) # vrai si f est une liste

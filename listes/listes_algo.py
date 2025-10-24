@@ -72,7 +72,7 @@ def max_valeur_indice(l: List[int]) -> Tuple[int, int]:
             indice = i
     return maximum, indice
 
-def mini(l: list[int]) -> int:
+def mini(l: List[int]) -> int:
     """
     Renvoie le minimum d'une liste de nombres
 
@@ -97,7 +97,7 @@ def mini(l: list[int]) -> int:
     """
     return min_valeur_indice(l)[0]
 
-def maxi(l: list[int]) -> int:
+def maxi(l: List[int]) -> int:
     """
     Renvoie le maximum d'une liste de nombres
 
@@ -122,7 +122,7 @@ def maxi(l: list[int]) -> int:
     """
     return max_valeur_indice(l)[0]
 
-def ind_mini(l: list[int]) -> int:
+def ind_mini(l: List[int]) -> int:
     """
     Retourne l'indice de la première occurrence du nombre minimum de la liste
 
@@ -150,7 +150,7 @@ def ind_mini(l: list[int]) -> int:
     return min_valeur_indice(l)[1]
 
 
-def ind_maxi(l: list[int]) -> int:
+def ind_maxi(l: List[int]) -> int:
     """
     Retourne l'indice de la première occurrence du nombre maximum de la liste
 
@@ -177,7 +177,7 @@ def ind_maxi(l: list[int]) -> int:
     """
     return max_valeur_indice(l)[1]
 
-def somme(l: list[int]) -> int:
+def somme(l: List[int]) -> int:
     """
     Retourne la somme des éléments d'une liste
 
@@ -202,7 +202,7 @@ def somme(l: list[int]) -> int:
         s += number
     return s
 
-def moyenne(l: list[int]) -> float:
+def moyenne(l: List[int]) -> float:
     """
     Retourne la moyenne des éléments dans une liste d'entiers
 
@@ -232,7 +232,7 @@ def moyenne(l: list[int]) -> float:
     moyenne_l = somme_l/longueur_l
     return moyenne_l
 
-def est_trie(l: list[int]) -> int:
+def est_trie(l: List[int]) -> int:
     """
     Permet de savoir si une liste d'entiers est croissante, décroissante ou ni l'un ni l'autre
 
@@ -273,25 +273,25 @@ def est_trie(l: list[int]) -> int:
 
 # TODO: implement pplslc, doublons, elts_communs, elts_differents, pplsltc, np, pslsm
 
-def pplslc(l: list[int]) -> Tuple[int, int]:
+def pplslc(l: List[int]) -> Tuple[int, int]:
     pass
 
-def doublons(l: list[int]) -> list[int]:
+def doublons(l: List[int]) -> List[int]:
     pass
 
-def elts_communs(l1: list[int], l2: list[int]) -> list[int]:
+def elts_communs(l1: List[int], l2: List[int]) -> List[int]:
     pass
 
-def elts_differents(l1: list[int], l2: list[int]) -> list[int]:
+def elts_differents(l1: List[int], l2: List[int]) -> List[int]:
     pass
 
-def pplsltc(l: list[int]) -> Tuple[int, int]:
+def pplsltc(l: List[int]) -> Tuple[int, int]:
     pass
 
-def np(l: list[int]) -> int:
+def np(l: List[int]) -> int:
     pass
 
-def pslsm(l: list[int]) -> Tuple[int, int]:
+def pslsm(l: List[int]) -> Tuple[int, int]:
     pass
 
 def main():
