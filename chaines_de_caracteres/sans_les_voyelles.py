@@ -56,9 +56,9 @@ def remove_vowels_rec(s: str) -> str:
         return ""
     c = s[0]
     if c in "aeiouy":
-        return remove_vowels_it(s[1:])
+        return remove_vowels_rec(s[1:])
     else:
-        return c + remove_vowels_it(s[1:])
+        return c + remove_vowels_rec(s[1:])
 
 def main():
     pass
