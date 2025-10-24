@@ -77,7 +77,7 @@ def mini(l: List[int]) -> int:
     Renvoie le minimum d'une liste de nombres
 
     :param l: La liste de nombres
-    :type l: list[int]
+    :type l: List[int]
     :return: Le minimum de la liste
     :rtype: int
     :raise ValueError: Si la liste est vide
@@ -102,7 +102,7 @@ def maxi(l: List[int]) -> int:
     Renvoie le maximum d'une liste de nombres
 
     :param l: La liste de nombres
-    :type l: list[int]
+    :type l: List[int]
     :return: Le maximum de la liste
     :rtype: int
     :raise ValueError: Si la liste est vide
@@ -127,7 +127,7 @@ def ind_mini(l: List[int]) -> int:
     Retourne l'indice de la première occurrence du nombre minimum de la liste
 
     :param l: La liste de nombres
-    :type l: list[int]
+    :type l: List[int]
     :return: L'indice du minimum
     :rtype: int
     :raise ValueError: Si la liste est vide
@@ -155,7 +155,7 @@ def ind_maxi(l: List[int]) -> int:
     Retourne l'indice de la première occurrence du nombre maximum de la liste
 
     :param l: La liste de nombres
-    :type l: list[int]
+    :type l: List[int]
     :return: L'indice du maximum
     :rtype: int
     :raise ValueError: Si la liste est vide
@@ -182,7 +182,7 @@ def somme(l: List[int]) -> int:
     Retourne la somme des éléments d'une liste
 
     :param l: La liste d'entiers
-    :type l: list[int]
+    :type l: List[int]
     :return: La somme (0 si la liste est vide)
     :rtype: int
 
@@ -207,7 +207,7 @@ def moyenne(l: List[int]) -> float:
     Retourne la moyenne des éléments dans une liste d'entiers
 
     :param l: La liste d'entiers
-    :type l: list[int]
+    :type l: List[int]
     :return: La moyenne
     :rtype: float
     :raise ValueError: Si la liste est vide
@@ -237,7 +237,7 @@ def est_trie(l: List[int]) -> int:
     Permet de savoir si une liste d'entiers est croissante, décroissante ou ni l'un ni l'autre
 
     :param l: La liste d'entiers
-    :type l: list[int]
+    :type l: List[int]
     :return: 1 si la liste est croissante ou constante, -1 si elle est décroissante et 0 sinon.
     :rtype: int
 

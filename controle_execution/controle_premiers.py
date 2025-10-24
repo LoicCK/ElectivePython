@@ -51,7 +51,7 @@ def decomposer_en_facteurs(n: int) -> Tuple[bool, Optional[int]]:
 
     return True, None
 
-def premier(n: int) -> int:
+def premier(n: int) -> bool:
     """
     Permet de savoir si n est un premier ou non.
 
