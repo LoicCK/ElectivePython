@@ -69,7 +69,7 @@ class Point2D(object):
         :returns: distance au point de référence
         :rtype: float
         """
-        return sqrt((self.x - point.x)^2 + (self.y - point.y)^2)
+        return sqrt((self.x - point.x)**2 + (self.y - point.y)**2)
 
 
 def main():
