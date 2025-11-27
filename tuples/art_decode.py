@@ -50,7 +50,7 @@ def artdecode(l: List[Tuple[chr,int]]) -> str:
     >>> s
     'MMMMaaacXolloMM'
     """
-    return "".join([t[0]*t[1] for t in l])
+    return "".join(t[0]*t[1] for t in l)
 
 def main():
     print(artdecode(L1), end = "\n\n\n")

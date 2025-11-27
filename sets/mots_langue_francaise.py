@@ -45,11 +45,8 @@ def read_data(filename: str) -> List[str]:
     lignes = []
     with open(FILENAME, encoding='utf-8') as f:
         lignes = f.readlines()
-    for i in range(len(lignes)):
-        ligne = lignes[i]
-        ligne = ligne.removesuffix("\n")
-        lignes[i] = ligne
-    return lignes
+    cleand_lignes = [ligne.removesuffix("\n") for ligne in lignes]
+    return cleand_lignes
 
 
 def ensemble_mots(filename: str) -> Set[str]:
@@ -99,12 +96,7 @@ def mots_de_n_lettres(mots: Set[str], n: int) -> Set[str]:
     >>> sorted(list(mots_de_n_lettres(mots,25)))
     ['anticonstitutionnellement', 'oto-rhino-laryngologistes']
     """
-
-    set_mots = set()
-    for mot in mots:
-        if len(mot) == n:
-            set_mots.add(mot)
-    return set_mots
+    return {mot for mot in mots if (len(mot) == n)}
 
 
 def mots_avec(mots: Set[str], s: str) -> Set[str]:
@@ -130,12 +122,7 @@ def mots_avec(mots: Set[str], s: str) -> Set[str]:
     >>> sorted(list(mk))[999::122]
     ['képi', 'nickela', 'parkérisiez', 'semi-coke', 'stockais', 'week-end']
     """
-
-    set_mots = set()
-    for mot in mots:
-        if s in mot:
-            set_mots.add(mot)
-    return set_mots
+    return {mot for mot in mots if s in mot}
 
 
 def cherche1(mots: Set[str], start: str, stop: str, n: int) -> Set[str]:
@@ -161,13 +148,7 @@ def cherche1(mots: Set[str], start: str, stop: str, n: int) -> Set[str]:
     >>> sorted(list(m_z))[4:7]
     ['zinguez', 'zippiez', 'zonerez']
     """
-
-    set_mots = set()
-    for mot in mots:
-        if len(mot) == n:
-            if mot.startswith(start) and mot.endswith(stop):
-                set_mots.add(mot)
-    return set_mots
+    return {mot for mot in mots if len(mot) == n and mot.startswith(start) and mot.endswith(stop)}
 
 
 def cherche2(mots: Set[str], lstart: List[str], lmid: List[str], lstop: List[str], nmin: int, nmax: int) -> Set[str]:
@@ -197,27 +178,17 @@ def cherche2(mots: Set[str], lstart: List[str], lmid: List[str], lstop: List[str
     >>> mab17ez
     {'alphabétisassiez'}
     """
-
-    set_mots = set()
-    for mot in mots:
-        longueur_mot = len(mot)
-        if not nmin <= longueur_mot <= nmax:
-            continue
-
-        if not mot.startswith(tuple(lstart)):
-            continue
-
-        if not mot.endswith(tuple(lstop)):
-            continue
-
-        milieu_du_mot = mot[1:-1]
-        if not any(s in milieu_du_mot for s in lmid):
-            continue
-
-        set_mots.add(mot)
+    tstart = tuple(lstart)
+    tstop = tuple(lstop)
 
 
-    return set_mots
+    return {mot
+            for mot in mots
+            if nmin <= len(mot) <= nmax
+            and mot.startswith(tstart)
+            and mot.endswith(tstop)
+            for mid in (mot[1:-1],)
+            if all(s in mid for s in lmid)}
 
 
 def main():

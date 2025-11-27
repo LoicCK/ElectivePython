@@ -9,7 +9,7 @@ def is_harshad(n: int) -> bool:
     >>> [ is_harshad(i) for i in [12, 14, 18, 19, 20, 21, 24, 26, 27] ]
     [True, False, True, False, True, True, True, False, True]
     """
-    return n%sum([int(i) for i in str(n)]) == 0
+    return n%sum(int(i) for i in str(n)) == 0
 
 def main():
     not_finished = True
